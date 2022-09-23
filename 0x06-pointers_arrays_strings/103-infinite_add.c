@@ -1,42 +1,48 @@
-#include "holberton.h"
-
-#include <stdio.h>
+#include "main.h"
 
 /**
- * print_buffer - Prints a buffer
- *
- * @b: char
- *
- * @size: int
- *
- * Return:void
+ * infinite_add - adds two numbers
+ * @n1: first number
+ * @n2: second number
+ * @r: buffer for result
+ * @size_r: buffer size
+ * Return: address of r or 0
  */
 
-void print_buffer(char *b, int size)
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-		int x, i;
-			for (x = 0; x < size; x += 10)
-{
-printf("%08x: ", x);
+	int i, j, k, l, m, n;
 
-										for (i = 0; i < 10; i++)
-{
-if ((i + x) >= size)								printf("  ");
-else
-printf("%02x", *(b + i + x))							if ((i % 2) != 0 && i != 0)							printf(" ");
-}
-for (i = 0; i < 10; i++)
-{if ((i + x) >= size)
-break;
-else if (*(b + i + x) >= 31 &&
-*(b + i + x) <=126)									printf("%c", *(b + i + x));
-else
-																				printf(".");
-}
-										if (x >= size)
-continue;
-printf("\n");
-}
-if (size <= 0)
-printf("\n");
+	for (i = 0; n1[i]; i++)
+				;
+	for (j = 0; n2[j]; j++)
+				;
+	if (i > size_r || j > size_r)
+		return (0);
+	m = 0;
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
+	{
+		n = m;
+		if (i >= 0)
+			n += n1[i] - '0';
+		if (j >= 0)
+			n += n2[j] - '0';
+		if (i < 0 && j < 0 && n == 0)
+		{
+			break;
+		}
+		m = n / 10;
+		r[k] = n % 10 + '0';
+	}
+	r[k] = '\0';
+	if (i >= 0 || j >= 0 || m)
+		return (0);
+	for (k -= 1, l = 0; l < k; k--, l++)
+	{
+		m = r[k];
+		r[k] = r[l];
+		r[l] = m;
+	}
+
+	return (r);
 }
