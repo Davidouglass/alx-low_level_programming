@@ -1,10 +1,12 @@
-#include.h "main.h"
+#include "main.h"
+
  /**
  * print_chessboard - print a chessboard
  * @a:array
  * Return:void
  */
 void print_chessboard(char (*a)[8])
+
 {
 	int i, j;
 
