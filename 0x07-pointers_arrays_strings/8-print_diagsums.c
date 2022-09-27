@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main."
 #include <stdio.h>
 /**
  * print_diagsums - print sum of 2 digona

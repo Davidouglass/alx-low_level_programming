@@ -1,5 +1,5 @@
-#include "holberton.h"
-/**
+#include.h "main.h"
+ /**
  * print_chessboard - print a chessboard
  * @a:array
  * Return:void
